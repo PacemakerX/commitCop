@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ccop"
+version = "0.1.0"
+description = "A CLI tool to enforce structured Git commit messages."
+readme = "README.md"
+authors = [
+    { name = "Sparsh", email = "your.email@example.com" }
+]
+license = { text = "MIT" }
+keywords = ["git", "commit", "hook", "cli", "tooling"]
+dependencies = [
+    "click>=8.0"
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/PacemakerX/commitCop"
+Documentation = "https://github.com/PacemakerX/ccop#readme"
+Repository = "https://github.com/PacemakerX/commitCop"
+
+[project.scripts]
+ccop = "ccop.main:cli"  # or cli if your entry is `cli.py`
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
