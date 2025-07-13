@@ -1,0 +1,87 @@
+.\" Manpage for ccop
+.TH ccop 1 "July 2024" "v0.1.0" "Commit Cop Manual"
+
+.SH NAME
+ccop \- Commit message enforcement for Git projects
+
+.SH SYNOPSIS
+.B ccop
+[\fICOMMAND\fR] [\fIOPTIONS\fR]
+
+.SH DESCRIPTION
+\fBccop\fR is a CLI tool that enforces clean, structured commit messages in Git repositories.
+It installs a Git \fIcommit-msg\fR hook that validates your commit messages against a user-configurable format defined in a YAML config file.
+
+.SH OPTIONS
+.TP
+.B --version
+Show the version and exit.
+
+.TP
+.B --help
+Show the help message and exit.
+
+.SH COMMANDS
+.TP
+.B init
+Install the commit-msg Git hook in the current repository.
+
+.TP
+.B uninstall
+Remove the commit-msg hook from the current repository.
+
+.TP
+.B validate
+Validate a commit message manually against the rules.
+
+.TP
+.B config
+Add, remove, or list allowed commit types and scopes.
+
+.TP
+.B format
+Display the valid commit message format and usage examples.
+
+.SH FILES
+.TP
+.B configs/default.yaml
+Default YAML configuration file that defines commit message rules (types and scopes).
+
+.SH EXAMPLES
+Initialize commit hook in current repo:
+.PP
+ccop init
+
+.PP
+Add a new commit type:
+.PP
+ccop config add type chore
+
+.PP
+Validate a message manually:
+.PP
+ccop validate "fix(api): Resolve authentication bug"
+
+.SH NOTES
+You can customize your commit types and scopes by editing the \fBdefault.yaml\fR config file or using the \fBconfig\fR command group.
+
+.SH AUTHOR
+Developed by Sparsh, 2025.
+
+.SH VERSION
+v0.1.0
+
+.SH ASCII ART
+.nf
+          ______
+         / ____/___  ____ ___  ____ _____
+        / /   / __ \/ __ `__ \/ __ `/ __ \
+       / /___/ /_/ / / / / / / /_/ / /_/ /
+       \____/\____/_/ /_/ /_/\__,_/ .___/
+                                /_/
+
+     Commit Cop — Commit Clean, Commit Confidently.
+.fi
+
+.SH FOOTER
+Made with ❤️ by Sparsh
