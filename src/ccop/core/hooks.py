@@ -1,13 +1,8 @@
 import os
 import shutil
+from ccop.core.git_helper import find_git_root
 
-def find_git_root():
-    current = os.getcwd()
-    while current != os.path.dirname(current):
-        if os.path.isdir(os.path.join(current, ".git")):
-            return current
-        current = os.path.dirname(current)
-    return None
+
 
 def install_local_commit_hook():
     git_root = find_git_root()
@@ -21,3 +16,13 @@ def install_local_commit_hook():
 
     shutil.copyfile(hook_src, hook_dst)
     os.chmod(hook_dst, 0o775)
+
+def uninstall_hook():
+    git_root = find_git_root()
+    hook_path = os.path.join(git_root, ".git", "hooks", "commit-msg")
+
+    if os.path.exists(hook_path):
+        os.remove(hook_path)
+        return True
+    return False
+
