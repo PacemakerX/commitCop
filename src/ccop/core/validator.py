@@ -1,16 +1,22 @@
+from ccop.core.config import load_config
 import re
 
-ALLOWED_TYPES = {"feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert", "init", "security"}
-ALLOWED_SCOPES = {"api", "db", "auth", "docs", "cli", "ui", "core", "utils", "infra", "config", "deps", "test", "repo"}
-
 def validate_commit_message(message):
-    types = "|".join(ALLOWED_TYPES)
-    scopes = "|".join(ALLOWED_SCOPES)
+    config = load_config()
+    pattern = config["yamlformat"]["pattern"]
+    types = config["yamlformat"]["types"]
+    scopes = config["yamlformat"]["scopes"]
 
-    # No underscore between type and (scope)
-    pattern = rf"^({types})\(({scopes})\): .+"
+    match = re.match(pattern, message)
+    if not match:
+        return False, "Message must follow the format: type(scope): description"
 
-    if not re.match(pattern, message):
-        return False, "Message must match pattern: <type>(<scope>): <message>"
+    msg_type = match.group(1)
+    msg_scope = match.group(2)
+
+    if msg_type not in types:
+        return False, f"Invalid type: '{msg_type}'. Allowed: {', '.join(types)}"
+    if msg_scope not in scopes:
+        return False, f"Invalid scope: '{msg_scope}'. Allowed: {', '.join(scopes)}"
 
     return True, ""

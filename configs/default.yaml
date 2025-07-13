@@ -1,0 +1,40 @@
+yamlformat:
+  # Pattern to match: <type>(<scope>): <message>
+  pattern: "^([a-z]+)\\(([a-zA-Z0-9_-]+)\\):\\s.+"
+  
+  types:
+    - feat
+    - fix
+    - docs
+    - refactor
+    - test
+    - build
+    - ci
+    - chore
+    - perf
+    - style
+    - revert
+    - security
+    - release
+    - config
+    - merge
+  scopes:
+    - api
+    - db
+    - auth
+    - ui
+    - core
+    - repo
+    - deps
+    - tests
+    - cli
+    - docs
+    - config
+    - scripts
+    - assets
+    - integration
+    - deployment
+    - logging
+    - monitoring
+    - cache
+
