@@ -1,40 +1,37 @@
 yamlformat:
-  # Pattern to match: <type>(<scope>): <message>
-  pattern: "^([a-z]+)\\(([a-zA-Z0-9_-]+)\\):\\s.+"
-  
+  pattern: ^([a-z]+)\(([a-zA-Z0-9_-]+)\):\s.+
   types:
-    - feat
-    - fix
-    - docs
-    - refactor
-    - test
-    - build
-    - ci
-    - chore
-    - perf
-    - style
-    - revert
-    - security
-    - release
-    - config
-    - merge
+  - build
+  - chore
+  - ci
+  - config
+  - docs
+  - feat
+  - fix
+  - merge
+  - perf
+  - refactor
+  - release
+  - revert
+  - security
+  - style
+  - test
   scopes:
-    - api
-    - db
-    - auth
-    - ui
-    - core
-    - repo
-    - deps
-    - tests
-    - cli
-    - docs
-    - config
-    - scripts
-    - assets
-    - integration
-    - deployment
-    - logging
-    - monitoring
-    - cache
-
+  - api
+  - db
+  - auth
+  - ui
+  - core
+  - repo
+  - deps
+  - tests
+  - cli
+  - docs
+  - config
+  - scripts
+  - assets
+  - integration
+  - deployment
+  - logging
+  - monitoring
+  - cache
