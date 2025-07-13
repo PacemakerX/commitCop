@@ -8,6 +8,9 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     include_package_data=True,
+    package_data={
+        "ccop": ["../configs/default.yaml"],
+    },
     install_requires=[
         "click>=8.0.0",
         "PyYAML>=6.0",
