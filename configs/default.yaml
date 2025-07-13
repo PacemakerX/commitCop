@@ -8,6 +8,7 @@ yamlformat:
   - docs
   - feat
   - fix
+  - init
   - merge
   - perf
   - refactor
