@@ -54,6 +54,25 @@ Download the latest release from GitHub and install via pip:
 pip install git+https://github.com/PacemakerX/commitCop.git
 ```
 
+### Via Git
+
+Install directly from the GitHub repo using pip:
+
+```bash
+pip install git+https://github.com/PacemaekrX/commitCop.git
+```
+Via Binary
+Download the prebuilt binary from the Releases section below:
+
+```bash
+chmod +x ccop
+./ccop --help
+```
+You can optionally move it to a directory in your PATH:
+
+```bash
+mv ccop /usr/local/bin/
+```
 ## Feel free to connect with me!
 
 <p align="center">
